@@ -46,7 +46,7 @@ This library, developed specifically for use with Kansas Lava, includes
 sized 1 and 2 dimensional matrixes, an sized signed and unsigned bit vectors.
 \end{itemize}
 
-We are writing Kansas Lava to address one problem (generate good hardware designs for telemetry circuits)
+We are writing Kansas Lava to address one problem (generate good hardware designs for communication circuits)
 and help facilitate a second (explore and understand correctness preserving optimizations of non-trivial
 hardware components).
 With telemetry circuits, the encodings and decoding mechanisms
@@ -75,7 +75,7 @@ The intention is that we will use ChalkBoard to animate educational
 videos, as well as processing streaming videos.
 
 Here is the basic architecture of ChalkBoard. 
-\small
+{\small
 \[
 \xygraph{
 !{(-4,0)}{\txt{ChalkBoard\\Image\\Specification}}="CIS",
@@ -88,6 +88,7 @@ Here is the basic architecture of ChalkBoard.
 !{}
 }
 \]
+}
 
 The image specification language is a deeply embedded Domain Specific Language (DSL).
 We capture and compile our DSL, rather than interpret it directly. 
