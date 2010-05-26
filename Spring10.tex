@@ -18,7 +18,8 @@ and leverages the abstractions in Haskell to build complex circuits.
 Lava, 
 the given name for a family of Haskell based hardware description libraries,
 is an idiomatic way of expressing hardware in Haskell which allows for simulation and
-synthesis to hardware
+synthesis to hardware.
+
 Driven by a self-imposed requirement to implementing some specific telemetry circuits in Lava,
 we have made a number of recent improvements to both the external API
 and the internal representations used. 
@@ -32,22 +33,24 @@ and regular way. This design decision unfortunately
 complicates the internals of Kansas Lava, but the external
 API remains unaffected.
 
-An overarching design decision is the aggressive use an algebra over {\em commutable functors and observable-functors\/}, the details of which we hope to write up this summer.
+An overarching design decision is the aggressive use an algebra over {\em commutable functors and observable functors\/} for circuit refinement, the details of which we hope to write up this summer.
 
-We have also been working on a new debugging system, which 
+We have also been working on a new debugging system, which combines the deep and 
+shallow embedding in a way to allow probes to be inserted onto functions.
+The values of the usage of these functions can be observed, as well 
+as used to generate test vectors. 
 
-A release is planned for late summer, and will be available on hackage.
-
-\FurtherReading
-  \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}
-
-Recent presentations about Kansas Lava (slides on website)
+A release is planned for late summer, and will be available on hackage. Recent presentations about Kansas Lava include (slides on website)
 \begin{itemize}
 \item May 18th, What's the matter with Kansas Lava?, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
 \item May 18th, The Internals and Externals of Kansas Lava, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
 \item May 11th, Generating Implementations of Error Correcting Codes using Kansas Lava, 10th Annual High Confidence  Software and Systems Conference, Linthicum Heights, MD.
 \item February 26th, Forward Error Correction Codes and Kansas Lava, Brigham Young University, Provo, Utah.
 \end{itemize}
+
+\FurtherReading
+  \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}
+
 
 \end{hcarentry}
 
@@ -64,25 +67,23 @@ The novel contribution of ChalkBoard is that it uses off-the-shelf
 graphics cards to speed up rendering of our functional description.
 We always intended to use ChalkBoard to animate educational
 videos, as well as processing streaming videos.
-Since the last HCAR report, we've used ChalkBoard for two main projects,
+Since the last HCAR report, we've used ChalkBoard in two main projects,
 covering both these goals.
 \begin{itemize}
 \item We use ChalkBoard to post-processing a
 ``special feature'' presentation at PEPM, where we turned
-a video of KU actors (us) giving a presentation into individual frames,
+a video of KU actors (err, us) giving a presentation into individual frames,
 and processed them using chalkboard to add clearer slides, and some animations.
 \item We are working on a new animation language, based round a new applicative
 functor, \verb|Active|. It has been called Functional Reactive Programming,
 without the reactive part!
 \end{itemize}
 
+We talked about a case study of using our \verb|Active| language at TFP in May,
+when Kevin gave the talk ``Every Animation Should Have a Beginning, a Middle, and an End''.
+
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/ChalkBoard}
-
-Recent presentation about ChalkBoard and our animation DSL
-\begin{itemize}
-\item May 18th, Every Animation Should Have a Beginning, a Middle, and an End, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
-\end{itemize}
 
 \end{hcarentry}
 
