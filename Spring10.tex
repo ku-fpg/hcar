@@ -1,16 +1,15 @@
-\documentclass{scrreprt}
+%\documentclass{scrreprt}
+\documentclass{article}
 \usepackage{paralist}
 \usepackage{graphicx}
 \usepackage{hcar}
-\usepackage[all]{xy}    % NOTICE THIS EXTRA PACKAGE
-
 
 \begin{document}
 
 \begin{hcarentry}{Kansas Lava}
 \report{Andy Gill}
 \status{Ongoing}
-\participants{Andy Gill, Tristan Bull, Andrew Farmer, Garrin Kimmell, Ed Komp, Brett Werling}% optional
+\participants{Andy Gill, Tristan Bull, Andrew Farmer, Garrin Kimmell, Ed~Komp}% optional
 \makeheader
 
 Kansas Lava is a modern implementation of a hardware description language
@@ -63,15 +62,16 @@ The language is uncompromisingly functional
 and encourages the use of modern functional idioms.
 The novel contribution of ChalkBoard is that it uses off-the-shelf
 graphics cards to speed up rendering of our functional description.
-The intention is that we will use ChalkBoard to animate educational
+We always intended to use ChalkBoard to animate educational
 videos, as well as processing streaming videos.
-
-Since the last HCAR report, we've used ChalkBoard for two main projects.
+Since the last HCAR report, we've used ChalkBoard for two main projects,
+covering both these goals.
 \begin{itemize}
-\item Post-processing a ``special feature'' presentation at PEPM, where we turned
+\item We use ChalkBoard to post-processing a
+``special feature'' presentation at PEPM, where we turned
 a video of KU actors (us) giving a presentation into individual frames,
 and processed them using chalkboard to add clearer slides, and some animations.
-\item Working on a new animation language, based round a new applicative
+\item We are working on a new animation language, based round a new applicative
 functor, \verb|Active|. It has been called Functional Reactive Programming,
 without the reactive part!
 \end{itemize}
@@ -79,7 +79,7 @@ without the reactive part!
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/ChalkBoard}
 
-Recent presentations about ChalkBoard and our animation DSL
+Recent presentation about ChalkBoard and our animation DSL
 \begin{itemize}
 \item May 18th, Every Animation Should Have a Beginning, a Middle, and an End, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
 \end{itemize}
@@ -96,9 +96,8 @@ the Computer Systems Design Laboratory in ITTC.
 The System Level Design Group (lead by Perry Alexander)
 and the Functional Programming Group (lead by Andy Gill)
 together form the core functional programming initiative at KU.
-
 Apart from Kansas Lava and ChalkBoard, there are many other
-FP related things going on.
+FP and Haskell related things going on.
 
 \begin{itemize}
 \item We are developing a Haskell version of HOL.
@@ -110,7 +109,7 @@ system, HaskHOL aims to provide the ability for Haskell users to reason about th
 code directly without having to transform it or otherwise export it to an external
 tool. For details talk to Evan Austin.
 
-\item We are actively working on enabling {\em Type-Directed Specification Refinement in Rosetta\/}. Rosetta is a specification language that focuses on the interaction between different domains, such as state-based and signal-based domains.  With dependent types, first-class types, and reflection, there are many areas where a traditional all-or-nothing typing analysis would be impractical--especially when considering that specifications are likely written at first in a high-level, incomplete fashion.  This project uses InterpreterLib  and various Rosetta analysis tools to define a typing analysis that attempts to extract typing information, constraints, and errors to present to the user, in order to guide the specification refinement process.  It is in the early stages of development, but may eventually link up with HaskHOL to discharge some TCC's.
+\item We are actively working on enabling {\em Type-Directed Specification Refinement in Rosetta\/}. Rosetta is a specification language that focuses on the interaction between different domains, such as state-based and signal-based domains.  With dependent types, first-class types, and reflection, there are many areas where a traditional all-or-nothing typing analysis would be impractical--especially when considering that specifications are likely written at first in a high-level, incomplete fashion.  This project uses InterpreterLib  and various Rosetta analysis tools to define a typing analysis that attempts to extract typing information, constraints, and errors to present to the user, in order to guide the specification refinement process.  It is in the early stages of development, but may eventually link up with HaskHOL to discharge some TCC's. For details talk to Mark Snyder.
 
 \item We are developing a library in Haskell for processing Rosetta specifications.
 A current focus is the modularity and re-use of distinct processing
@@ -123,11 +122,12 @@ fixed points to achieve extensibility and generic programming. The
 goal of the library is to provide to a tight and graduated interface
 to the basic processing elements, so that the users may incorporate
 the most appropriate basic elements when implementing their own, more
-domain-specific Rosetta processors.
+domain-specific Rosetta processors. For details talk to Nick Frisby.
 
-\item CSDL is developing Oread, a language utilizing monadic concepts capturing message-passing concurrency, to explore the application of functional languages to hardware/software system design and implementation. The Oread toolset, implemented in Haskell,  is used to compile the language to either embedded processor cores or FPGA hardware technology. The compiler is capable of emitting LLVM code, which can then be compiled to the Microblaze soft processor, or VHDL and Verilog, for direct implementation on Xilinx FPGA devices.
+\item CSDL is developing Oread, a language utilizing monadic concepts capturing message-passing concurrency, to explore the application of functional languages to hardware/software system design and implementation. The Oread toolset, implemented in Haskell,  is used to compile the language to either embedded processor cores or FPGA hardware technology. The compiler is capable of emitting LLVM code, which can then be compiled to the Microblaze soft processor, or VHDL and Verilog, for direct implementation on Xilinx FPGA devices. For details talk to Garrin Kimmell.
 \end{itemize}
 
+We also lose Garrin Kimmell in June, when he moves to Iowa.
 
 \FurtherReading
   The Functional Programming Group (with a new website)  
