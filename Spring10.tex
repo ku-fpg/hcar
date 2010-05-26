@@ -42,12 +42,12 @@ A release is planned for late summer, and will be available on hackage.
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}
 
-Recent presentations about Kansas Lava
+Recent presentations about Kansas Lava (slides on website)
 \begin{itemize}
+\item May 18th, What's the matter with Kansas Lava?, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
 \item May 18th, The Internals and Externals of Kansas Lava, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
-\item May 11th, Generating Implementations of Error Correcting Codes using Kansas Lava, 10th Annual High Confidence  Software and Systems Conference, Linthicum Heights, MD, Slides, Quicktime Slides.
-\item March 11th, Information Assurance, Functional Programming and Kansas Lava, Information Assurance Visit, ITTC.
-\item February 26th, Forward Error Correction Codes and Kansas Lava, Brigham Young University, Provo, Utah, jointly with Erik Perrins. 
+\item May 11th, Generating Implementations of Error Correcting Codes using Kansas Lava, 10th Annual High Confidence  Software and Systems Conference, Linthicum Heights, MD.
+\item February 26th, Forward Error Correction Codes and Kansas Lava, Brigham Young University, Provo, Utah.
 \end{itemize}
 
 \end{hcarentry}
@@ -78,29 +78,63 @@ without the reactive part!
 
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/ChalkBoard}
+
+Recent presentations about ChalkBoard and our animation DSL
+\begin{itemize}
+\item May 18th, Every Animation Should Have a Beginning, a Middle, and an End, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
+\end{itemize}
+
 \end{hcarentry}
 
 \begin{hcarentry}{Functional Programming at KU}
 \report{Andy Gill}
-\status{???}
+\status{Ongoing}
 \makeheader
 
-Functional Programming remains active at KU. We continue to 
+Functional Programming remains active at KU and 
+the Computer Systems Design Laboratory in ITTC.
+The System Level Design Group (lead by Perry Alexander)
+and the Functional Programming Group (lead by Andy Gill)
+together form the core functional programming initiative at KU.
 
-Put the text here. What's following are suggestions for the content of an entry.
+Apart from Kansas Lava and ChalkBoard, there are many other
+FP related things going on.
 
-(WHAT IS IT?)
+\begin{itemize}
+\item We are developing a Haskell version of HOL.
+Traditionally, members of the higher-order logic theorem (HOL) proving family have
+been implemented in the Standard ML programming language or one of its derivatives.
+HaskHOL aims to break with tradition by implementing a lightweight HOL theorem prover
+library as a Haskell hosted domain specific language. Based on the HOL Light logical
+system, HaskHOL aims to provide the ability for Haskell users to reason about their
+code directly without having to transform it or otherwise export it to an external
+tool. For details talk to Evan Austin.
 
-(WHAT IS ITS STATUS? / WHAT HAS HAPPENED SINCE LAST TIME?)
+\item We are actively working on enabling {\em Type-Directed Specification Refinement in Rosetta\/}. Rosetta is a specification language that focuses on the interaction between different domains, such as state-based and signal-based domains.  With dependent types, first-class types, and reflection, there are many areas where a traditional all-or-nothing typing analysis would be impractical--especially when considering that specifications are likely written at first in a high-level, incomplete fashion.  This project uses InterpreterLib  and various Rosetta analysis tools to define a typing analysis that attempts to extract typing information, constraints, and errors to present to the user, in order to guide the specification refinement process.  It is in the early stages of development, but may eventually link up with HaskHOL to discharge some TCC's.
 
-(CAN OTHERS GET IT?)
+\item We are developing a library in Haskell for processing Rosetta specifications.
+A current focus is the modularity and re-use of distinct processing
+elements, such as type-checking, partial evaluation, and reasoning
+assistants. Mutually defined elements that are more convenient to
+consider as distinct interact via a reactive monadic computation, so
+the two elements' code can be managed as separate packages. Also, our
+principal specification representation use functors and type-level
+fixed points to achieve extensibility and generic programming. The
+goal of the library is to provide to a tight and graduated interface
+to the basic processing elements, so that the users may incorporate
+the most appropriate basic elements when implementing their own, more
+domain-specific Rosetta processors.
 
-(WHAT ARE THE IMMEDIATE PLANS?)
+\item CSDL is developing Oread, a language utilizing monadic concepts capturing message-passing concurrency, to explore the application of functional languages to hardware/software system design and implementation. The Oread toolset, implemented in Haskell,  is used to compile the language to either embedded processor cores or FPGA hardware technology. The compiler is capable of emitting LLVM code, which can then be compiled to the Microblaze soft processor, or VHDL and Verilog, for direct implementation on Xilinx FPGA devices.
+\end{itemize}
+
 
 \FurtherReading
-  \url{(PROJECT URL)}
-\end{hcarentry}
+  The Functional Programming Group (with a new website)  
+    \url{http://www.ittc.ku.edu/csdl/fpg}.
 
+  CSDL website: \url{https://wiki.ittc.ku.edu/csdl/Main_Page}
+\end{hcarentry}
 
 
 \end{document}
