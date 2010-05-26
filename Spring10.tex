@@ -13,51 +13,43 @@
 \participants{Andy Gill, Tristan Bull, Andrew Farmer, Garrin Kimmell, Ed Komp, Brett Werling}% optional
 \makeheader
 
-Kansas Lava is an attempt to use the Lava design pattern with modern functional programing
-technology. In particular we scale up the ideas in Lava to operate
-on larger circuits and with large basic components. 
-\begin{itemize}
-\item Kansas Lava uses a single principal \verb|Signal| type for all types of signals. 
-Some versions
-of Lava have overloaded signal to interpret signal in either a synthesis or
-simulation mode. Our experience is that a single concrete type is easier
-to work with in practice, and we have baked the two main interpretations
-into our \verb|Signal| type. Ultimately this allows a closer fit between
-the specifications of behavior and synthesizable code. 
-\item Like other Lava implementations before it, Kansas Lava supports both synthesis and simulation.
-The use case would typically be development of a executable model, refinement into
-a synthesizable variant, then further refinement for efficiency, and other considerations.
-\item Kansas Lava uses a modern FP style of Haskell. We allow \verb|Signal| to
-be an applicative functor. Arithmetic is overloaded over Signal,
-so we can represent addition using \verb|+|, multiplication using \verb|*|, etc.
-Constant literals can also be Signals. 
-This leads to a cleaner looking specifications.
-\item Kansas Lava has direct support for importing existing
-VHDL libraries as new, well typed primitives. This allows Kansas Lava to 
-be used as a high-level glue between existing solutions.
-\item Kansas Lava includes a simple type checking over binary representations.
-Polymorphic specifications inside Lava will be instantiated
-to their specific, monomorphically sized implementation in VDHL,
-depending on the propagation of actual usage.
-\item In Haskell, requiring a 14-bit value is unusual, but in hardware, we often
-know and want to enforce a specific width. 
-Kansas Lava used an implementation of sized types, built using type functions.
-This library, developed specifically for use with Kansas Lava, includes
-sized 1 and 2 dimensional matrixes, an sized signed and unsigned bit vectors.
-\end{itemize}
+Kansas Lava is a modern implementation of a hardware description language
+that uses functions to express hardware components,
+and leverages the abstractions in Haskell to build complex circuits. 
+Lava, 
+the given name for a family of Haskell based hardware description libraries,
+is an idiomatic way of expressing hardware in Haskell which allows for simulation and
+synthesis to hardware
+Driven by a self-imposed requirement to implementing some specific telemetry circuits in Lava,
+we have made a number of recent improvements to both the external API
+and the internal representations used. 
+We have retained our dual shallow/deep
+representation of signals in general, but now have a number of externally visible
+abstractions for combinatorial, sequential, and enabled signals.
+We also have new abstractions for memory and memory updates.
+Internally, we found the need to represent unknown values inside our circuits, 
+so we made aggressive use of type functions to lift our values in a principled
+and regular way. This design decision unfortunately 
+complicates the internals of Kansas Lava, but the external
+API remains unaffected.
 
-We are writing Kansas Lava to address one problem (generate good hardware designs for communication circuits)
-and help facilitate a second (explore and understand correctness preserving optimizations of non-trivial
-hardware components).
-With telemetry circuits, the encodings and decoding mechanisms
-are typically express using matrixes operations, so we pay careful
-attention to allowing clear encoding of such operations.
-In particular, we use type functions to clean up sized types, 
-making for a cohesive addition to our Lava.
-A release is planned for early November, and will be available on hackage.
+An overarching design decision is the aggressive use an algebra over {\em commutable functors and observable-functors\/}, the details of which we hope to write up this summer.
+
+We have also been working on a new debugging system, which 
+
+A release is planned for late summer, and will be available on hackage.
 
 \FurtherReading
-  \url{http://www.ittc.ku.edu/csdl/fpg/tools/Kansas_Lava}
+  \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}
+
+Recent presentations about Kansas Lava
+\begin{itemize}
+\item May 18th, The Internals and Externals of Kansas Lava, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
+\item May 11th, Generating Implementations of Error Correcting Codes using Kansas Lava, 10th Annual High Confidence  Software and Systems Conference, Linthicum Heights, MD, Slides, Quicktime Slides.
+\item March 11th, Information Assurance, Functional Programming and Kansas Lava, Information Assurance Visit, ITTC.
+\item February 26th, Forward Error Correction Codes and Kansas Lava, Brigham Young University, Provo, Utah, jointly with Erik Perrins. 
+\end{itemize}
+
 \end{hcarentry}
 
 \begin{hcarentry}{ChalkBoard}
@@ -74,40 +66,18 @@ graphics cards to speed up rendering of our functional description.
 The intention is that we will use ChalkBoard to animate educational
 videos, as well as processing streaming videos.
 
-Here is the basic architecture of ChalkBoard. 
-{\small
-\[
-\xygraph{
-!{(-4,0)}{\txt{ChalkBoard\\Image\\Specification}}="CIS",
-!{(-4,-1)}*+[F]{\txt{Deep\\DSL}},
-!{(0,0)}*+{\txt{ChalkBoard\\IR}}="CBIR",
-!{(4,0)}{\txt{OpenGL}}="OpenGL",
-!{(4,-1)}*+[F]{\txt{GPU}},
-"CIS" :@{->}^{\txt{DSL Capture}}_{\txt{\& Compile}} "CBIR",
-"CBIR" :@{->}^{\txt{ChalkBoard}}_{\txt{Back End}} "OpenGL",
-!{}
-}
-\]
-}
-
-The image specification language is a deeply embedded Domain Specific Language (DSL).
-We capture and compile our DSL, rather than interpret it directly. 
-In order to do this, and allow use of a polygon-based back-end,
-we have needed to make some interesting compromises,
-but the language captured remains pure, has a variant
-of functors as a control structure,
-and has first-class images.
-We compile this language into an imperative intermediate representation
-that has first class {\em buffers} -- regular arrays of colors or other entities.
-This language is then interpreted by macro-expanding each intermediate representation
-command into a set of OpenGL commands.  In this
-way, we leverage modern  graphics boards to
-do the heavy lifting of the language. 
-
-A release is planned for early November, and will be available on hackage.
+Since the last HCAR report, we've used ChalkBoard for two main projects.
+\begin{itemize}
+\item Post-processing a ``special feature'' presentation at PEPM, where we turned
+a video of KU actors (us) giving a presentation into individual frames,
+and processed them using chalkboard to add clearer slides, and some animations.
+\item Working on a new animation language, based round a new applicative
+functor, \verb|Active|. It has been called Functional Reactive Programming,
+without the reactive part!
+\end{itemize}
 
 \FurtherReading
-  \url{http://www.ittc.ku.edu/csdl/fpg/tools/ChalkBoard}
+  \url{http://www.ittc.ku.edu/csdl/fpg/Tools/ChalkBoard}
 \end{hcarentry}
 
 \begin{hcarentry}{Functional Programming at KU}
