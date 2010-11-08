@@ -9,7 +9,7 @@
 \begin{hcarentry}{Kansas Lava}
 \report{Andy Gill}
 \status{Ongoing}
-\participants{Andy Gill, Tristan Bull, Andrew Farmer, Garrin Kimmell, Ed~Komp}% optional
+\participants{Andy Gill, Tristan Bull, Andrew Farmer, Ed~Komp}% optional
 \makeheader
 
 Kansas Lava is a modern implementation of a hardware description language
@@ -20,37 +20,20 @@ the given name for a family of Haskell based hardware description libraries,
 is an idiomatic way of expressing hardware in Haskell which allows for simulation and
 synthesis to hardware.
 
-Driven by a self-imposed requirement to implementing some specific telemetry circuits in Lava,
-we have made a number of recent improvements to both the external API
-and the internal representations used. 
-We have retained our dual shallow/deep
-representation of signals in general, but now have a number of externally visible
-abstractions for combinatorial, sequential, and enabled signals.
-We also have new abstractions for memory and memory updates.
-Internally, we found the need to represent unknown values inside our circuits, 
-so we made aggressive use of type functions to lift our values in a principled
-and regular way. This design decision unfortunately 
-complicates the internals of Kansas Lava, but the external
-API remains unaffected.
+Though there has been no public release (yet), we have made considerable
+progress with Kansas Lava. We generate several large telemetry circuits,
+which have been synthesized and tested on real hardware, running at speeds
+comparable to other implementation techniques.
+The talk about internals of Kansas Lava was presented by Andrew Farmer at the
+Haskell implementors workshop in October, and the talk and slides are available online.
 
-An overarching design decision is the aggressive use an algebra over {\em commutable functors and observable functors\/} for circuit refinement, the details of which we hope to write up this summer.
+Jun Inoue from Rice University visited for CSDL for October and November, to help
+connect his ''staging'' work with the Kansas Lava work.
 
-We have also been working on a new debugging system, which combines the deep and 
-shallow embedding in a way to allow probes to be inserted onto functions.
-The values of the usage of these functions can be observed, as well 
-as used to generate test vectors. 
-
-A release is planned for late summer, and will be available on hackage. Recent presentations about Kansas Lava include (slides on website)
-\begin{itemize}
-\item May 18th, What's the matter with Kansas Lava?, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
-\item May 18th, The Internals and Externals of Kansas Lava, Eleventh Symposium on Trends in Functional Programming, Norman, OK.
-\item May 11th, Generating Implementations of Error Correcting Codes using Kansas Lava, 10th Annual High Confidence  Software and Systems Conference, Linthicum Heights, MD.
-\item February 26th, Forward Error Correction Codes and Kansas Lava, Brigham Young University, Provo, Utah.
-\end{itemize}
+A release of Kansas Lava release is planned for the end of the year.
 
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}
-
 
 \end{hcarentry}
 
@@ -67,20 +50,12 @@ The novel contribution of ChalkBoard is that it uses off-the-shelf
 graphics cards to speed up rendering of our functional description.
 We always intended to use ChalkBoard to animate educational
 videos, as well as for processing streaming videos.
-Since the last HCAR report, we've used ChalkBoard in two main projects,
-covering both these goals.
-\begin{itemize}
-\item We used ChalkBoard to post-process a
-``special feature'' presentation at PEPM, where we turned
-a video of KU actors (err, us) giving a presentation, into individual frames,
-and processed these frames using ChalkBoard to add clearer slides, and some animations.
-\item We are working on a new animation language, based round a new applicative
+Since the last HCAR report, we've added a new animation language, based round a new applicative
 functor, \verb|Active|. It has been called Functional Reactive Programming,
-without the reactive part!
-\end{itemize}
+without the reactive part! The paper``Every Animation Should Have a Beginning, a Middle, and an End'' talks
+about this addition. 
 
-We talked about a case study of using our \verb|Active| language at TFP in May,
-when Kevin gave the talk ``Every Animation Should Have a Beginning, a Middle, and an End''.
+A release is scheduled for November 2010.
 
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/ChalkBoard}
@@ -91,6 +66,8 @@ when Kevin gave the talk ``Every Animation Should Have a Beginning, a Middle, an
 \report{Andy Gill}
 \status{Ongoing}
 \makeheader
+
+\includegraphics[width=100pt]{jh2.jpg}
 
 Functional Programming remains active at KU and 
 the Computer Systems Design Laboratory in ITTC.
@@ -125,13 +102,13 @@ to the basic processing elements, so that the users may incorporate
 the most appropriate basic elements when implementing their own, more
 domain-specific Rosetta processors. For details talk to Nick Frisby.
 
-\item CSDL is developing Oread, a language utilizing monadic concepts capturing message-passing concurrency, to explore the application of functional languages to hardware/software system design and implementation. The Oread toolset, implemented in Haskell,  is used to compile the language to either embedded processor cores or FPGA hardware technology. The compiler is capable of emitting LLVM code, which can then be compiled to the Microblaze soft processor, or VHDL and Verilog, for direct implementation on Xilinx FPGA devices. For details talk to Garrin Kimmell.
+\item We are working with other functional programming groups round the world (University of Iowa, St. Andrews, Heriot Watt, Halmstad Universit, and of course Chalmers) to share our common experiences with using FPGA board, and generating VHDL.
+So far, we have chosen and purchased specific Xilinx boards, and have a design for a so called ``$\lambda$-bridge'' between our UNIX invocation infrastructures and our FPGA boards. The idea is we can share experiences, for the sake of 
+being able to spend more time working on FP issues, and bringing FP ideas to hardware related problems.
 \end{itemize}
 
-We also lose Garrin Kimmell in June, when he moves to Iowa.
-
 \FurtherReading
-  The Functional Programming Group (with a new website)  
+  The Functional Programming Group
     \url{http://www.ittc.ku.edu/csdl/fpg}.
 
   CSDL website: \url{https://wiki.ittc.ku.edu/csdl/Main_Page}
