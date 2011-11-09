@@ -1,30 +1,34 @@
 % KansasLava-AK.tex
-\begin{hcarentry}{Kansas Lava}
+\begin{hcarentry}{$\lambda$-Bridge}
 \label{klava}
 \report{Andy Gill}%11/10
-\participants{Tristan Bull, Andrew Farmer, Ed~Komp}
+\participants{Andy Gill, Bowe Neuenschwander, Patrick Miller, Ed~Komp}
 \status{ongoing}
 \makeheader
 
-Kansas Lava is a modern implementation of a hardware description language
-that uses functions to express hardware components,
-and leverages the abstractions in Haskell to build complex circuits. 
-Lava, 
-the given name for a family of Haskell based hardware description libraries~\cref{ylava}\cref{chalmers},
-is an idiomatic way of expressing hardware in Haskell which allows for simulation and
-synthesis to hardware.
+The $\lambda$-bridge effort provides enabling technology for using functional
+programming on FPGA fabrics and boards. The majority of the artifacts are
+shared documentation of ways to use FPGA board, and libraries (software and
+hardware) that facilitate the use of FPGAs.
 
-Though there has been no public release (yet), we have made considerable
-progress with Kansas Lava. We have generated several large telemetry circuits,
-which have been synthesized and tested on real hardware, running at speeds
-comparable to other implementation techniques.
-A talk about internals of Kansas Lava was presented by Andrew Farmer at the
-Haskell implementors workshop in October, and the talk and slides are available online.
+Techniques for {\em programing\/} FPGA boards are well documented, and there
+are many online examples and other resources to draw from. Getting data to and
+from a new hardware configuration, however, is a problem every bit (pun
+intended) as challenging as programming a FPGA in the first place. From
+empirical evidence, engineers that need communications with a host processor
+write custom VHDL or Verlog for their specific board to solve this problem.
 
-Jun Inoue from Rice University visited CSDL for October and November, to help
-connect his ``staging'' work with the Kansas Lava work.
-%
-A release of Kansas Lava release was planned for the end of 2010.
+We are using Kansas Lava to generate various ``Cores'' that provide
+a network protocol stack centered
+round the simple $\lambda$-bridge protocol, while being generic
+about the physical layer.
+For example, we support the RS-232 cable and TCP/IP over ethernet, 
+and have plans for USB and (where applicable) directly via a motherboard bus. Using the $\lambda$-bridge is not the fastest way of communicating
+with a board, but we hope will be the easiest way of getting up and running
+with a design.
+Between Kansas Lava, Kansas Lava Cores, and $\lambda$-bridge, we hope
+to introduce a new generation of functional programmers to the joys
+of FPGA programming.
 
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}
