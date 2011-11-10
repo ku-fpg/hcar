@@ -2,30 +2,53 @@
 \begin{hcarentry}{Kansas Lava}
 \label{klava}
 \report{Andy Gill}%11/10
-\participants{Tristan Bull, Andrew Farmer, Ed~Komp}
+\participants{Andy Gill, Andrew Farmer, Ed~Komp, Bowe Neuenschwander,
+Garrin Kimmell (University of Iowa)}
 \status{ongoing}
 \makeheader
 
-Kansas Lava is a modern implementation of a hardware description language
-that uses functions to express hardware components,
-and leverages the abstractions in Haskell to build complex circuits. 
-Lava, 
-the given name for a family of Haskell based hardware description libraries~\cref{ylava}\cref{chalmers},
-is an idiomatic way of expressing hardware in Haskell which allows for simulation and
-synthesis to hardware.
+Kansas Lava is a Domain Specific Language (DSL) for expressing
+hardware descriptions of computations, and is hosted inside the
+language Haskell. Kansas Lava programs are descriptions of specific hardware
+entities, the connections between them, and other computational abstractions
+that can compile down to these entities. Large circuits have be successfully
+expressed using Kansas Lava, and Haskell's powerful abstraction mechanisms, as
+well as generic generative techniques, can be applied to good effect to provide
+descriptions of highly efficient circuits.
+Kansas Lava draws considerably from Xilinx Lava~\cref{ylava} and
+Chalmers Lava~\cref{chalmers}.
 
-Though there has been no public release (yet), we have made considerable
-progress with Kansas Lava. We have generated several large telemetry circuits,
-which have been synthesized and tested on real hardware, running at speeds
-comparable to other implementation techniques.
-A talk about internals of Kansas Lava was presented by Andrew Farmer at the
-Haskell implementors workshop in October, and the talk and slides are available online.
+The release of Kansas Lava, version 0.2.4, happened in early November.
+Based round this release, there are a number of resources for users,
+including a (draft) tutorial, and a youtube channel with
+walkthroughs of our Lava in use.
 
-Jun Inoue from Rice University visited CSDL for October and November, to help
-connect his ``staging'' work with the Kansas Lava work.
-%
-A release of Kansas Lava release was planned for the end of 2010.
+On top of Kansas Lava, we are developing Kansas Lava Cores, which was released
+on hackage at the same time as Kansas Lava. In hardware, a core is a component
+that can be realized as a circuit, typically on an FPGA. Kansas Lava Cores
+contains about a dozen cores, and basic board support for Spartan3e,
+as well as an emulator for the Spartan3e.
+
+Using various components provided as Kansas Lava Cores, we are developing the
+$\lambda$-bridge~\cref{lambdabridge}, with implementations in Haskell and
+Kansas Lava of a simple protocol stack for communicating with FPGAs. We have
+early prototypes working, and implementation in Kansas Lava continues.
+
+Finally, we are working on an Lava idiom called a {\tt Patch}, which is a Kansas
+Lava component interface that uses types to declare protocols and handshakes
+needed and used. Most of components in the Kansas Lava Cores are instances of
+our {\tt Patch} idiom. There is a PADL 2012 paper describing {\tt Patch},
+including the design and implementation of a controller for a ST7066U-powered
+LCD display.
+
+Tristan Bull graduated in May 2011 with an MS. His MS thesis was about using
+Kansas Lava. Congratulations Tristan!
 
 \FurtherReading
-  \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}
+\begin{compactitem}
+\item
+  \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}\\
+\item
+  \url{http://www.youtube.com/playlist?list=PL211F8711E3B3DF9C}  
+\end{compactitem}
 \end{hcarentry}

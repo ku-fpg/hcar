@@ -22,33 +22,27 @@ there are several other
 FP and Haskell related things going on.
 
 \begin{itemize}
+
 \item We are continuing our development of a lightweight Haskell version of HOL.
-Traditionally, members of the higher-order logic theorem (HOL) proving family have
-been implemented in the Standard ML programming language or one of its derivatives.
-HaskHOL aims to break with tradition by implementing a lightweight HOL theorem prover
-library as a Haskell hosted domain specific language. Based on the HOL Light logical
-system, HaskHOL aims to provide the ability for Haskell users to reason about their
-code directly without having to transform it or otherwise export it to an external
-tool. For details talk to Evan Austin.
+Traditionally, members of the higher-order logic theorem (HOL) proving family
+have been implemented in the Standard ML programming language or one of its
+derivatives. HaskHOL aims to break with tradition by implementing a lightweight
+HOL theorem prover library as a Haskell hosted domain specific language. Based
+on the HOL Light logical system, HaskHOL aims to provide the ability for Haskell
+users to reason about their code directly without having to transform it or
+otherwise export it to an external tool. For details talk to Evan Austin.
 
-\item We are actively working on enabling {\em Type-Directed Specification Refinement in Rosetta\/}. Rosetta is a specification language that focuses on the interaction between different domains, such as state-based and signal-based domains.  With dependent types, first-class types, and reflection, there are many areas where a traditional all-or-nothing typing analysis would be impractical --- especially when considering that specifications are likely written at first in a high-level, incomplete fashion.  This project uses InterpreterLib (\url{http://haskell.org/communities/11-2008/html/report.html#sect5.5.6}) and various Rosetta analysis tools to define a typing analysis that attempts to extract typing information, constraints, and errors to present to the user, in order to guide the specification refinement process.  It is in the early stages of development, but may eventually link up with HaskHOL to discharge some TCC's. For details talk to Mark Snyder.
-
-\item We are developing a library in Haskell for processing Rosetta specifications.
-A current focus is the modularity and re-use of distinct processing
-elements, such as type-checking, partial evaluation, and reasoning
-assistants. Mutually defined elements that are more convenient to
-consider as distinct interact via a reactive monadic computation, so
-the two elements' code can be managed as separate packages. Also, our
-principal specification representation use functors and type-level
-fixed points to achieve extensibility and generic programming. The
-goal of the library is to provide to a tight and graduated interface
-to the basic processing elements, so that the users may incorporate
-the most appropriate basic elements when implementing their own, more
-domain-specific Rosetta processors. For details talk to Nick Frisby.
-
-\item We are working with other functional programming groups (University of Iowa, St.\ Andrews, Heriot-Watt, Halmstad University, and of course Chalmers) to share our common experiences with using FPGA boards, and generating VHDL.
-So far, we have chosen and purchased common Xilinx boards, and have a design for a so called ``$\lambda$-bridge'' between our UNIX invocation infrastructures and our FPGA boards. The idea is we can share experiences, for the sake of 
-being able to spend more time working on FP issues, and bringing FP ideas to hardware related problems.
+\item We are developing a library in Haskell for processing Rosetta
+specifications. A current focus is the modularity and re-use of distinct
+processing elements, such as type-checking, partial evaluation, and reasoning
+assistants. Mutually defined elements that are more convenient to consider as
+distinct interact via a reactive monadic computation, so the two elements' code
+can be managed as separate packages. Also, our principal specification
+representation use functors and type-level fixed points to achieve extensibility
+and generic programming. The goal of the library is to provide to a tight and
+graduated interface to the basic processing elements, so that the users may
+incorporate the most appropriate basic elements when implementing their own,
+more domain-specific Rosetta processors. For details talk to Nick Frisby.
 \end{itemize}
 
 \FurtherReading
