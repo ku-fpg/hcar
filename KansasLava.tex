@@ -1,7 +1,7 @@
 % KansasLava-AK.tex
 \begin{hcarentry}{Kansas Lava}
 \label{klava}
-\report{Andy Gill}%11/10
+\report{Andy Gill}%11/11
 \participants{Andy Gill, Andrew Farmer, Ed~Komp, Bowe Neuenschwander,
 Garrin Kimmell (University of Iowa)}
 \status{ongoing}
@@ -11,11 +11,13 @@ Kansas Lava is a Domain Specific Language (DSL) for expressing
 hardware descriptions of computations, and is hosted inside the
 language Haskell. Kansas Lava programs are descriptions of specific hardware
 entities, the connections between them, and other computational abstractions
-that can compile down to these entities. Large circuits have be successfully
+that can compile down to these entities. Large circuits have been successfully
 expressed using Kansas Lava, and Haskell's powerful abstraction mechanisms, as
 well as generic generative techniques, can be applied to good effect to provide
 descriptions of highly efficient circuits.
-Kansas Lava draws considerably from Xilinx Lava~\cref{ylava} and
+Kansas Lava draws considerably from Xilinx Lava~%\cref{ylava} 
+(\url{http://www.haskell.org/communities/11-2010/html/report.html#sect3.7})
+and
 Chalmers Lava~\cref{chalmers}.
 
 The release of Kansas Lava, version 0.2.4, happened in early November.
@@ -34,11 +36,11 @@ $\lambda$-bridge~\cref{lambdabridge}, with implementations in Haskell and
 Kansas Lava of a simple protocol stack for communicating with FPGAs. We have
 early prototypes working, and implementation in Kansas Lava continues.
 
-Finally, we are working on an Lava idiom called a {\tt Patch}, which is a Kansas
+Finally, we are working on a Lava idiom called a {\tt Patch}, which is a Kansas
 Lava component interface that uses types to declare protocols and handshakes
 needed and used. Most of components in the Kansas Lava Cores are instances of
 our {\tt Patch} idiom. There is a PADL 2012 paper describing {\tt Patch},
-including the design and implementation of a controller for a ST7066U-powered
+including the design and implementation of a controller for an ST7066U-powered
 LCD display.
 
 Tristan Bull graduated in May 2011 with an MS. His MS thesis was about using

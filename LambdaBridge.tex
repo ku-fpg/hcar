@@ -1,8 +1,8 @@
-% KansasLava-AK.tex
+% lambdaBridge-Al.tex
 \begin{hcarentry}{$\lambda$-Bridge}
 \label{lambdabridge}
-\report{Andy Gill}%11/10
-\participants{Andy Gill, Bowe Neuenschwander, Patrick Miller, Ed~Komp}
+\report{Andy Gill}%11/11
+\participants{Andy Gill, Bowe Neuenschwander, Patrick Miller, Ed Komp}
 \status{ongoing}
 \makeheader
 
@@ -10,7 +10,7 @@ The $\lambda$-bridge effort provides enabling technology for using functional
 programming on FPGA fabrics and boards. The majority of the artifacts are
 shared documentation of ways to use FPGA board, and libraries (software and
 hardware) that facilitate the use of FPGAs.
-Techniques for {\em programing\/} FPGA boards are well documented, and there
+Techniques for {\em programming\/} FPGA boards are well documented, and there
 are many online examples and other resources to draw from. Getting data to and
 from a new hardware configuration, however, is a problem every bit (pun
 intended) as challenging as programming a FPGA in the first place. From
@@ -18,7 +18,7 @@ empirical evidence, engineers that need communications with a host processor
 write custom VHDL or Verilog for their specific board to solve this problem.
 $\lambda$-bridge helps solve this problem.
 
-We are using Kansas Lava to generate various ``Cores'' that provide
+We are using Kansas Lava \cref{klava} to generate various ``Cores'' that provide
 a network protocol stack centered
 round the simple $\lambda$-bridge protocol, while being generic
 about the physical layer.
