@@ -7,33 +7,28 @@
 \makeheader
 
 The Haskell Equational Reasoning Model-to-Implementation Tunnel
-(HERMIT) is an NSF-funded project being run at KU \cref{ukansas} to improving the
-Applicability of Haskell-Hosted Semi-Formal Models to High Assurance
-Development. Specifically, HERMIT will use the worker/wrapper
-transformation, a Haskell-hosted DSL, and a new refinement UI to
-perform rewrites directly on Haskell Core, the GHC internal
-representation.
+(HERMIT) is an NSF-funded project being run at KU \cref{ukansas}, which aims to improve the
+applicability of Haskell-hosted Semi-Formal Models to High Assurance Development.
+Specifically, HERMIT will use: a Haskell-hosted DSL; the Worker/Wrapper Transformation;
+and a new refinement user interface to perform rewrites directly on Haskell Core, the GHC internal representation.
 
 This project is a substantial case study into the application of
 worker/wrapper on larger examples. In particular, we want to
 demonstrate the equivalences between efficient Haskell programs, and
-their clear, specification-style Haskell counterparts. In doing so,
+their clear specification-style Haskell counterparts. In doing so
 there are several open problems, including refinement scripting and
 management scaling issues, data representation and presentation
 challenges, and understanding the theoretical boundaries of the
 worker/wrapper transformation.
 
-The project started in Spring 2012, and is expected to run
-for 2 years. Neil Sculthorpe, who got his PhD from
-the University of Nottingham, has joined as the senior member of the project,
-and Andrew Framer and Ed Komp round
-out the team. We have already reworked the Domain Specific Language
-KURE as our basis of our rewrite capabilities, and constructed the
-rewrite kernel. The entire system uses the GHC plugin architecture,
-and we have small examples successfully being transformed through
-a simple REPL. A web-based API is being constructed, and an
-Android version is planned.
-We hope to write up a detailed introduction of our architecture
+The project started in Spring 2012, and is expected to run for two years.
+Neil Sculthorpe, who got his PhD from the University of Nottingham in 2011, has joined as a senior member of the project,
+and Andrew Farmer and Ed Komp round out the team.
+We have already reworked the KURE DSL as the basis of our rewrite capabilities, and constructed the rewrite kernel.
+The entire system uses the GHC plugin architecture,
+and we have small examples successfully being transformed through a simple REPL.
+A web-based API is being constructed, and an Android version is planned.
+We aim to write up a detailed introduction of our architecture
 and implementation for the Haskell Symposium.
 
 \FurtherReading
