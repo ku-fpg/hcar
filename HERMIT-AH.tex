@@ -1,7 +1,7 @@
 % HERMIT-AH.tex
-\begin{hcarentry}{HERMIT}
+\begin{hcarentry}[updated]{HERMIT}
 \label{HERMIT}
-\report{Andy Gill}%11/11
+\report{Andy Gill}%05/12
 \participants{Andy Gill, Andrew Farmer, Ed~Komp, Neil Sculthorpe}
 \status{active}
 \makeheader
@@ -12,8 +12,8 @@ applicability of Haskell-hosted Semi-Formal Models to High Assurance Development
 Specifically, HERMIT will use: a Haskell-hosted DSL; the Worker/Wrapper Transformation;
 and a new refinement user interface to perform rewrites directly on Haskell Core, the GHC internal representation.
 
-This project is a substantial case study into the application of
-worker/wrapper on larger examples. In particular, we want to
+This project is a substantial case study of the application of
+Worker/Wrapper on larger examples. In particular, we want to
 demonstrate the equivalences between efficient Haskell programs, and
 their clear specification-style Haskell counterparts. In doing so
 there are several open problems, including refinement scripting and
@@ -24,7 +24,7 @@ worker/wrapper transformation.
 The project started in Spring 2012, and is expected to run for two years.
 Neil Sculthorpe, who got his PhD from the University of Nottingham in 2011, has joined as a senior member of the project,
 and Andrew Farmer and Ed Komp round out the team.
-We have already reworked the KURE DSL as the basis of our rewrite capabilities, and constructed the rewrite kernel.
+We have already reworked the KURE DSL (\url{http://www.haskell.org/communities/11-2008/html/report.html#sect5.5.7}) as the basis of our rewrite capabilities, and constructed the rewrite kernel.
 The entire system uses the GHC plugin architecture,
 and we have small examples successfully being transformed through a simple REPL.
 A web-based API is being constructed, and an Android version is planned.
