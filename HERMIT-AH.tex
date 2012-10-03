@@ -22,14 +22,23 @@ challenges, and understanding the theoretical boundaries of the
 worker/wrapper transformation.
 
 The project started in Spring 2012, and is expected to run for two years.
-Neil Sculthorpe, who got his PhD from the University of Nottingham in 2011, has joined as a senior member of the project,
-and Andrew Farmer and Ed Komp round out the team.
-We have already reworked the KURE DSL (\url{http://www.haskell.org/communities/11-2008/html/report.html#sect5.5.7}) as the basis of our rewrite capabilities, and constructed the rewrite kernel.
-The entire system uses the GHC plugin architecture,
-and we have small examples successfully being transformed through a simple REPL.
-A web-based API is being constructed, and an Android version is planned.
-We aim to write up a detailed introduction of our architecture
-and implementation for the Haskell Symposium.
+The HERMIT team currently consists of
+one assistant professor, %Andy
+one research engineer, %Ed
+one post-doc, %Neil
+one PhD student, %Drew
+three undergraduates, %is Jan an undergrad?
+and three unofficial student and ex-student volunteers. % Nick + 2 undergrads?
+%
+% Neil Sculthorpe, who got his PhD from the University of Nottingham in 2011, has joined as a senior member of the project,
+% and Andrew Farmer and Ed Komp round out the team.
+%
+
+We have reworked KURE (\url{http://www.haskell.org/communities/11-2008/html/report.html#sect5.5.7}), a Haskell-hosted DSL for strategic programming, as the basis of our rewrite capabilities, and constructed the rewrite kernel making use of the GHC Plugins architecture.
+As for interfaces to the kernel, we currently have a command-line REPL, we are constructing a web-based API, and an Android version is planned.
+A detailed introduction to the HERMIT architecture and implementation can be found in our Haskell Symposium 2012 paper.
+Thus far, we have used HERMIT to successfully mechanize about a dozen small examples of program transformations, drawn from the literature on techniques such as concatenate vanishes, tupling transformation, and worker/wrapper.
+A discussion of our experiences mechanizing these examples can be found in our IFL 2012 paper.
 
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/HERMIT}
