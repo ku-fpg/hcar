@@ -25,12 +25,12 @@ LCD display.
 Wakarusa was never written up.
 
 \item Patches and Wakarusa have been replaced with a unified enhancement of the Fabric
-monad. The Fabric monad historically provides access to named input/output ports,
-and now also provided named variables, implemented by ports that loop back on
+monad. The Fabric monad historically provided access to named input/output ports,
+and now also provides named variables, implemented by ports that loop back on
 themselves. This additional primitive capability allows for a {\em typed\/}
 state machine monad.
 This design gives an elegant stratospheric pattern: purely functional circuits using streams;
-a monad for layout over {\em space\/}, and a monad for state generation,
+a monad for layout over {\em space\/}; and a monad for state generation,
 that acts over {\em time\/}.
 
 \item 
@@ -46,8 +46,8 @@ and new state-machine generation monad.
 we continue developing the $\lambda$-bridge 
 with implementations (in Haskell and
 Kansas Lava) of a simple protocol stack for communicating with FPGAs.
-This bridge is based round the best-effort, unreliable,
-but acknowledgment-based access to a 8-bit WISHBONE-compliant hardware bus,
+This bridge is based on the best-effort, unreliable,
+but acknowledgment-centric access to an 8-bit WISHBONE-compliant hardware bus,
 and idempotent transaction requests.
 This has the advantage of moving the implementation
 of the complexity of providing reliable communications into the Haskell
