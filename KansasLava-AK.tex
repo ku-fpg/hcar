@@ -2,8 +2,7 @@
 \begin{hcarentry}{Kansas Lava}
 \label{klava}
 \report{Andy Gill}%11/11
-\participants{Andy Gill, Andrew Farmer, Ed~Komp, Bowe Neuenschwander,
-Garrin Kimmell (University of Iowa)}
+\participants{Andy Gill, Bowe Neuenschwander}
 \status{ongoing}
 \makeheader
 
@@ -15,34 +14,51 @@ that can compile down to these entities. Large circuits have been successfully
 expressed using Kansas Lava, and Haskell's powerful abstraction mechanisms, as
 well as generic generative techniques, can be applied to good effect to provide
 descriptions of highly efficient circuits.
-Kansas Lava draws considerably from Xilinx Lava~%\cref{ylava} 
-(\url{http://www.haskell.org/communities/11-2010/html/report.html#sect3.7})
-and
-Chalmers Lava~\cref{chalmers}.
 
-The release of Kansas Lava, version 0.2.4, happened in early November.
-Based round this release, there are a number of resources for users,
-including a (draft) tutorial, and a youtube channel with
-walkthroughs of our Lava in use.
-
-On top of Kansas Lava, we are developing Kansas Lava Cores, which was released
-on hackage at the same time as Kansas Lava. In hardware, a core is a component
-that can be realized as a circuit, typically on an FPGA. Kansas Lava Cores
-contains about a dozen cores, and basic board support for Spartan3e,
-as well as an emulator for the Spartan3e.
-
-Using various components provided as Kansas Lava Cores, we are developing the
-$\lambda$-bridge (\url{http://www.haskell.org/communities/11-2011/html/report.html#sect8.8.2})%~\cref{lambdabridge}
-, with implementations in Haskell and
-Kansas Lava of a simple protocol stack for communicating with FPGAs. We have
-early prototypes working, and implementation in Kansas Lava continues.
-
-Finally, we are working on a Lava idiom called a {\tt Patch}, which is a Kansas
-Lava component interface that uses types to declare protocols and handshakes
-needed and used. Most of components in the Kansas Lava Cores are instances of
-our {\tt Patch} idiom. There is a PADL 2012 paper describing {\tt Patch},
+Kansas Lava has undergone considerable changes over the last 12 months.
+\begin{itemize}
+\item The Patches idea (normalizing handshaking circuits) and the Wakarusa
+Monad (compiling state machines into untyped Fabrics) have been rejected. There
+was a PEPM'12 paper about Patches,
 including the design and implementation of a controller for an ST7066U-powered
 LCD display.
+Wakarusa was never written up.
+
+\item Patches and Wakarusa have been replaced with a unified enhancement of the Fabric
+monad. The Fabric monad historically provides access to named input/output ports,
+and now also provided named variables, implemented by ports that loop back on
+themselves. This additional primitive capability allows for a {\em typed\/}
+state machine monad.
+This design gives an elegant stratospheric pattern: purely functional circuits using streams;
+a monad for layout over {\em space\/}, and a monad for state generation,
+that acts over {\em time\/}.
+
+\item 
+On top of Kansas Lava, we are developing Kansas Lava Cores.
+In hardware, a core is a component
+that can be realized as a circuit, typically on an FPGA. Kansas Lava Cores
+contains about a dozen cores, and basic board support for Spartan3e,
+as well as a high-fidelity emulator for the Spartan3e. The
+cores and the simulator has been rewritten to use the new Fabric
+and new state-machine generation monad.
+
+\item Using various components provided as Kansas Lava Cores, 
+we continue developing the $\lambda$-bridge 
+with implementations (in Haskell and
+Kansas Lava) of a simple protocol stack for communicating with FPGAs.
+This bridge is based round the best-effort, unreliable,
+but acknowledgment-based access to a 8-bit WISHBONE-compliant hardware bus,
+and idempotent transaction requests.
+This has the advantage of moving the implementation
+of the complexity of providing reliable communications into the Haskell
+code. The net effect is that programmers can use Haskell to
+talk to real hardware over multiple possible physical connections
+(RS232, RJ-45, USB, etc), and communicate via standard Haskell
+idioms like file Handles, Chans, and MVars.
+
+\item Finally, with Iavor Diatchki (Galois), we are reworking our {\tt sized-types\/}
+library to use the new kind {\tt Nat} in GHC 7.6.
+\end{itemize}
 
 \FurtherReading
 \begin{compactitem}
