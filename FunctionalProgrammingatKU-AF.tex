@@ -35,32 +35,15 @@ Scotty borrows heavily from the Yesod \cref{yesod} ecosystem, conforming
 to the WAI \cref{wai} interface and using the fast Warp \cref{warp} web server
 by default. More information can be found at the link below.
 
-On top of {\tt Scotty}, we have built a simple interface
-into the HTML5 Canvas mechanism, called {\tt blank-canvas}.
-This was constructed primarily as a teaching tool and
-a proof-of-concept design. Here is an example of
-a teaching application which prints squares to the canvas,
-based on where the user clicks the mouse.
+On top of {\tt Scotty}, we are building {\tt sunroof},
+a deeply-embedded Javascript compiler, allowing for
+the handling arbitrary asynchronous Javascript events
+directly on the browser. The initial design and
+implementation was written up in  XLDI'12.
 
-%**<img width=200 src="./squares.png">
-%*ignore
-\begin{center}
-\includegraphics[width=0.47\textwidth]{html/squares.png}
-\end{center}
-%*endignore
-
-Simple interactive games can be developed using this API,
-and new Haskell programmers found it straightforward to use.
-Unbeknown to us, {\tt blank-canvas} was also used in a high-school
-level functional programming mentoring effort being lead by Alwyn Goodloe.
-
-We are now working to generalize the ideas in {\tt blank-canvas} by
-creating a framework to handle arbitrary asynchronous Javascript events
-and DOM manipulation via a server-side Haskell DSL. This DSL will make it possible to control
-a browser-based UI using well known Haskell patterns, such as Functional
-Reactive Programming.
-
-All packages are available from Hackage, or will be shortly.
+Finally, in August 2012 Nicolas Frisby successfully defended his
+PhD, and plans to start an internship at MSR Cambridge early
+next year. 
 
 \FurtherReading
 \begin{compactitem}
