@@ -15,17 +15,10 @@ expressed using Kansas Lava, and Haskell's powerful abstraction mechanisms, as
 well as generic generative techniques, can be applied to good effect to provide
 descriptions of highly efficient circuits.
 
-Kansas Lava has undergone considerable changes over the last 12 months.
 \begin{itemize}
-\item The Patches idea (normalizing handshaking circuits) and the Wakarusa
-Monad (compiling state machines into untyped Fabrics) have been rejected. There
-was a PEPM'12 paper about Patches,
-including the design and implementation of a controller for an ST7066U-powered
-LCD display.
-Wakarusa was never written up.
 
-\item Patches and Wakarusa have been replaced with a unified enhancement of the Fabric
-monad. The Fabric monad historically provided access to named input/output ports,
+\item The Fabric monad is now a Monad transformer.
+The Fabric monad historically provided access to named input/output ports,
 and now also provides named variables, implemented by ports that loop back on
 themselves. This additional primitive capability allows for a {\em typed\/}
 state machine monad.
@@ -49,22 +42,15 @@ Kansas Lava) of a simple protocol stack for communicating with FPGAs.
 This bridge is based on the best-effort, unreliable,
 but acknowledgment-centric access to an 8-bit WISHBONE-compliant hardware bus,
 and idempotent transaction requests.
-This has the advantage of moving the implementation
-of the complexity of providing reliable communications into the Haskell
-code. The net effect is that programmers can use Haskell to
-talk to real hardware over multiple possible physical connections
-(RS232, RJ-45, USB, etc), and communicate via standard Haskell
-idioms like file Handles, Chans, and MVars.
 
-\item Finally, with Iavor Diatchki (Galois), we are reworking our {\tt sized-types\/}
-library to use the new kind {\tt Nat} in GHC 7.6.
+\item Finally, with Iavor Diatchki (Galois), we have reworking
+our {\tt sized-types\/} library to use the new kind {\tt Nat} provided
+in GHC 7.6.
 \end{itemize}
 
 \FurtherReading
 \begin{compactitem}
 \item
-  \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}\\
-\item
-  \url{http://www.youtube.com/playlist?list=PL211F8711E3B3DF9C}  
+  \url{http://www.ittc.ku.edu/csdl/fpg/Tools/KansasLava}
 \end{compactitem}
 \end{hcarentry}

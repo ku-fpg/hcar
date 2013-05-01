@@ -10,7 +10,7 @@ Adam Howell, Robert Blair, Ryan Scott, Patrick Flor, Michael Tabone}
 The Haskell Equational Reasoning Model-to-Implementation Tunnel
 (HERMIT) is an NSF-funded project being run at KU \cref{ukansas}, which aims to improve the
 applicability of Haskell-hosted Semi-Formal Models to High Assurance Development.
-Specifically, HERMIT will use: a Haskell-hosted DSL; the Worker/Wrapper Transformation;
+Specifically, HERMIT uses a Haskell-hosted DSL
 and a new refinement user interface to perform rewrites directly on Haskell Core, the GHC internal representation.
 
 This project is a substantial case study of the application of
@@ -22,30 +22,23 @@ managing scaling issues, data representation and presentation
 challenges, and understanding the theoretical boundaries of the
 worker/wrapper transformation.
 
-The project started in Spring 2012, and is expected to run for two years.
-The HERMIT team currently consists of
-one assistant professor, %Andy
-one research engineer, %Ed
-one post-doc, %Neil
-one PhD student, %Drew
-one Masters student, %Jan
-two undergraduates,
-and three student and ex-student volunteers. % Nick + 2 undergrads?
-%
-% Neil Sculthorpe, who got his PhD from the University of Nottingham in 2011, has joined as a senior member of the project,
-% and Andrew Farmer and Ed Komp round out the team.
-%
+We have reworked KURE (\url{http://www.haskell.org/communities/11-2008/html/report.html#sect5.5.7}),
+a Haskell-hosted DSL for strategic programming, as the basis of our rewrite capabilities,
+and constructed the rewrite kernel making use of the GHC Plugins architecture.
+A journal writeup of the KURE internals has been submitted to JFP, and is available
+on the group webpage.
+As for interfaces to the kernel, 
+we currently have a command-line REPL, and an Android version is under development.
+Thus far, we have used HERMIT to successfully mechanize many smaller examples of program transformations,
+drawn from the literature on techniques such as concatenate vanishes, tupling transformation, and worker/wrapper.
+We are scaling up our capabilities, working on larger examples, and hope to submit a paper
+to the Haskell Symposium this summer.
 
-We have reworked KURE (\url{http://www.haskell.org/communities/11-2008/html/report.html#sect5.5.7}), a Haskell-hosted DSL for strategic programming, as the basis of our rewrite capabilities, and constructed the rewrite kernel making use of the GHC Plugins architecture.
-As for interfaces to the kernel, we currently have a command-line REPL, we are constructing a web-based API, and an Android version is planned.
-A detailed introduction to the HERMIT architecture and implementation can be found in our Haskell Symposium 2012 paper.
-Thus far, we have used HERMIT to successfully mechanize about a dozen small examples of program transformations, drawn from the literature on techniques such as concatenate vanishes, tupling transformation, and worker/wrapper.
-A discussion of our experiences mechanizing these examples can be found in our IFL 2012 paper.
+We are also building 
 
-Funded by the NSF REU initiative and ITTC (our research center),
-we are also working on an Android application interface for HERMIT,
-where gestures can be used to manipulate Haskell Core programs.
-Five KU undergraduates are working on the Android application.
+HERMIT was also used in a large case study, lead by Michael Adams from Portland State University
+in Oregon. Adams used HERMIT to mechanize the optimization of scrap your boilerplate generics,
+leading to execution speeds that were as fast as hand-optimized code.
 
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/HERMIT}

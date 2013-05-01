@@ -12,38 +12,22 @@
 \end{center}
 %*endignore
 
-Functional Programming is vibrant at KU and
+Functional Programming continues at KU and
 the Computer Systems Design Laboratory in ITTC!
 The System Level Design Group (lead by Perry Alexander)
 and the Functional Programming Group (lead by Andy Gill)
 together form the core functional programming initiative at KU.
-Apart from Kansas Lava~\cref{klava} and HERMIT~\cref{HERMIT},
-there are several other
-FP and Haskell related things going on,
-primarily in the area of web technologies.
+There are three major Haskell projects at KU (as
+well as numerous smaller ones):
+the GHC rewrite plugin HERMIT~\cref{HERMIT},
+the VHDL generator Kansas Lava~\cref{klava} and
+the JavaScript generator Sunroof~\cref{sunroof}.
 
-We are interested in providing better support for
-interactive applications in Haskell by building on top of existing web technologies,
-like the fast Chrome browser, HTML5, and JavaScript. This is motivated
-partly by having easy tools to interactively teach programming in Haskell,
-and partly by the needs of the HERMIT~\cref{HERMIT} project.
-
-Towards this, we have developed a lightweight web framework called {\tt Scotty}.
-Modeled after Ruby's popular Sinatra framework, Scotty is intended to
-be a cheap and cheerful way to write RESTful, declarative web applications.
-Scotty borrows heavily from the Yesod \cref{yesod} ecosystem, conforming
-to the WAI \cref{wai} interface and using the fast Warp \cref{warp} web server
-by default. More information can be found at the link below.
-
-On top of {\tt Scotty}, we are building {\tt sunroof},
-a deeply-embedded Javascript compiler, allowing for
-the handling of arbitrary asynchronous Javascript events
-directly on the browser. The initial design and
-implementation was written up in  XLDI'12.
-
-Finally, in August 2012 Nicolas Frisby successfully defended his
-PhD, and plans to start an internship at MSR Cambridge early
-next year. 
+Nicolas Frisby, who defended his PhD from KU last summer,
+spend the spring at MSR Cambridge, working on optimizations
+inside the Glasgow Haskell compiler.
+Andrew Farmer spend the spring in Portland, OR, working
+with functional programmers at Portland State.
 
 \FurtherReading
 \begin{compactitem}
@@ -51,7 +35,5 @@ next year.
     \url{http://www.ittc.ku.edu/csdl/fpg}
 \item
   CSDL website: \url{https://wiki.ittc.ku.edu/csdl/Main_Page}
-\item \url{http://www.ittc.ku.edu/csdl/fpg/Tools/Scotty}
-\item \url{http://www.ittc.ku.edu/csdl/fpg/Tools/BlankCanvas}
 \end{compactitem}
 \end{hcarentry}
