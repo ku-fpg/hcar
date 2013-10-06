@@ -34,7 +34,12 @@ drawn from the literature on techniques such as concatenate vanishes, tupling tr
 We are scaling up our capabilities, working on larger examples, and hope to submit a paper
 to the Haskell Symposium this summer.
 
-We are also building 
+We have reworked KURE (\url{http://www.haskell.org/communities/11-2008/html/report.html#sect5.5.7}), a Haskell-hosted DSL for strategic programming, as the basis of our rewrite capabilities, and constructed the rewrite kernel making use of the GHC Plugins architecture.
+As for interfaces to the kernel, we currently have a command-line REPL, we are constructing a web-based API, and an Android version is planned.
+A detailed introduction to the HERMIT architecture and implementation can be found in our Haskell Symposium 2012 paper.
+We have used HERMIT to successfully mechanize about a dozen small examples of program transformations, drawn from the literature on techniques such as concatenate vanishes, tupling transformation, and worker/wrapper.
+A discussion of our experiences mechanizing these examples can be found in our IFL 2012 paper.
+HERMIT has also been used to optimize generic traversals written using Scrap Your Boilerplate, see \cref{sec:optimisingGenerics} for details.
 
 HERMIT was also used in a large case study, lead by Michael Adams from Portland State University
 in Oregon. Adams used HERMIT to mechanize the optimization of scrap your boilerplate generics,
