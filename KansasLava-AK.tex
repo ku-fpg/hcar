@@ -27,25 +27,10 @@ a monad for layout over {\em space\/}; and a monad for state generation,
 that acts over {\em time\/}.
 
 \item 
-On top of Kansas Lava, we are developing Kansas Lava Cores.
-In hardware, a core is a component
-that can be realized as a circuit, typically on an FPGA. Kansas Lava Cores
-contains about a dozen cores, and basic board support for Spartan3e,
-as well as a high-fidelity emulator for the Spartan3e. The
-cores and the simulator has been rewritten to use the new Fabric
-and new state-machine generation monad.
-
-\item Using various components provided as Kansas Lava Cores, 
-we continue developing the $\lambda$-bridge 
-with implementations (in Haskell and
-Kansas Lava) of a simple protocol stack for communicating with FPGAs.
-This bridge is based on the best-effort, unreliable,
-but acknowledgment-centric access to an 8-bit WISHBONE-compliant hardware bus,
-and idempotent transaction requests.
-
-\item Finally, with Iavor Diatchki (Galois), we have reworked
-our {\tt sized-types\/} library to use the new kind {\tt Nat} provided
-in GHC 7.6.
+On top of the Fabric monad, we are implementing an atomic transaction
+layer, which provides a BSV-like interface, but in Haskell. An initial
+implementation has been completed, and this is being reworked to include
+BSV's Ephemeral History Registers.
 \end{itemize}
 
 \FurtherReading
