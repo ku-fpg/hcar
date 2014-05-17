@@ -3,7 +3,7 @@
 \label{HERMIT}
 \report{Andy Gill}%11/13
 \participants{Andy Gill, Andrew Farmer, Ed~Komp, Neil Sculthorpe,
-Adam Howell, Robert Blair, Ryan Scott, Patrick Flor, Michael Tabone}
+Adam Howell, Ryan Scott}
 \status{active}
 \makeheader
 
@@ -14,7 +14,7 @@ Specifically, HERMIT uses a Haskell-hosted DSL
 and a new refinement user interface to perform rewrites directly on Haskell Core, the GHC internal representation.
 
 This project is a substantial case study of the application of
-Worker/Wrapper on larger examples. In particular, we want to
+Worker/Wrapper. In particular, we want to
 demonstrate the equivalences between efficient Haskell programs, and
 their clear specification-style Haskell counterparts. In doing so
 there are several open problems, including refinement scripting and
@@ -29,16 +29,27 @@ A journal writeup of the KURE internals has been submitted to JFP, and is availa
 on the group webpage.
 As for interfaces to the kernel,
 we currently have a command-line REPL, and an Android version is under development.
-Thus far, we have used HERMIT to successfully mechanize many smaller examples of program transformations,
+We have used HERMIT to successfully mechanize many smaller examples of program transformations,
 drawn from the literature on techniques such as concatenate vanishes, tupling transformation, and worker/wrapper.
-We are scaling up our capabilities, and working on larger examples.
-%, and hope to submit a paper to the Haskell Symposium this summer.
 
-HERMIT has also been used in two larger case studies.
-The first, led by Michael Adams from Portland State University
-in Oregon, uses HERMIT to mechanize the optimization of scrap your boilerplate generics,
-leading to execution speeds that were as fast as hand-optimized code \cref{sec:optimisingGenerics}.
-The second uses HERMIT to implement a custom GHC optimization pass which enables fusion of nested streams within the Stream Fusion framework.
+We are scaling up our capabilities, and working on larger examples,
+including the mechanization of improvements to the classical game of life.
+We also submitted a paper to the Haskell Symposium 2014 with a description of
+our support for equational reasoning in HERMIT, including a mechanization
+of Bird's ``Making a Century''.
+
+HERMIT is also being used in three projects.
+\begin{itemize}
+\item Michael Adams used HERMIT to mechanize the optimization of scrap
+  your boilerplate generics, leading to execution speeds that were as
+  fast as hand-optimized code \cref{sec:optimisingGenerics}. The
+  result was published in PEPM, where it was awarded a best paper
+  award.
+\item Andrew Farmer has used HERMIT to implement a custom GHC
+  optimization pass which enables fusion of nested streams within the
+  Stream Fusion framework.  This work was also published in PEPM.
+\item Finally, Conal Elliott is working on typed reification of Core using HERMIT.
+\end{itemize}
 
 \FurtherReading
   \url{http://www.ittc.ku.edu/csdl/fpg/Tools/HERMIT}
