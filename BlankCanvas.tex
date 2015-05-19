@@ -1,0 +1,39 @@
+% HERMIT-AH.tex
+\begin{hcarentry}{Blank Canvas}
+\label{BlankCanvas}
+\report{Andy Gill}%05/15
+\participants{Andy Gill, Justin Dawson, Mark Grebe, Ryan Scott, James Stanton, Jeff Rosenbluth, and Neil Sculthorpe}
+\status{active}
+\makeheader
+
+Blank Canvas is a Haskell binding to the complete HTML5 Canvas API.
+blank-canvas allows Haskell users to write, in Haskell, interactive images
+onto their web browsers. blank-canvas gives the user a single full-window
+canvas, and provides many well-documented functions for rendering images.
+
+\begin{verbatim}
+{-# LANGUAGE OverloadedStrings #-}
+module Main where
+import Graphics.Blank
+
+main = blankCanvas 3000 $ \ context -> do
+  send context $ do                      
+    moveTo(50,50)
+    lineTo(200,100)
+    lineWidth 10
+    strokeStyle "red"
+    stroke()                             
+\end{verbatim}
+
+For more details, read the blank-canvas wiki.
+
+\FurtherReading
+\begin{compactitem}
+\item
+  \url{https://hackage.haskell.org/package/blank-canvas}
+\item
+  \url{https://github.com/ku-fpg/blank-canvas}
+\item
+  \url{https://github.com/ku-fpg/blank-canvas/wiki}
+\end{compactitem}
+\end{hcarentry}
