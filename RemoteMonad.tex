@@ -29,16 +29,16 @@ strokeStyle :: Text               -> Canvas ()
 \end{verbatim}
 
 If we wanted to change the (remote) line width,
-the `lineWidth` RPC can be invoked by combining `send`
-and `lineWidth`:
+the \verb`lineWidth` RPC can be invoked by combining \verb`send`
+and \verb`lineWidth`:
 
 \begin{verbatim}
 send device (lineWidth 10)
 \end{verbatim}
 
 Likewise, if we wanted to change the (remote) stroke color,
-the `strokeStyle` RPC can be invoked by combining `send`
-and `strokeStyle`:
+the \verb`strokeStyle` RPC can be invoked by combining \verb`send`
+and \verb`strokeStyle`:
 
 \begin{verbatim}
 send device (strokeStyle "red")
@@ -69,7 +69,7 @@ we could use the result as follows:
       ...
 \end{verbatim}
 
-The invocation of `send` can also return a value:
+The invocation of \verb`send` can also return a value:
 
 \begin{verbatim}
   do res <- send device (isPointInPath (0,0))
