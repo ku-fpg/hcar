@@ -1,0 +1,97 @@
+% Remote-Monad.tex
+\begin{hcarentry}[new]{The Remote Monad Design Pattern}
+\label{Wakarusa}
+\report{Andy Gill}
+\participants{Justin Dawson, Mark Grebe, James Stanton, David Young}
+\status{active}
+\makeheader
+
+The {\bf remote monad design pattern} is a way of
+making Remote Procedure Calls (RPCs), and other
+calls that leave the Haskell eco-system, considerably less expensive.
+The idea is that, rather than directly call a remote procedure,
+we instead give the remote procedure call a service-specific monadic
+type, and invoke the remote procedure call using a monadic "send" function.
+Specifically, a {\bf remote monad} is a monad that has its evaluation function in
+a remote location, outside the local runtime system.
+
+By factoring the RPC into sending invocation and service name, we can
+group together procedure calls, and amortize the cost of the remote
+call. To give an example, Blank Canvas, our library for remotely
+accessing the JavaScript HTML5 Canvas, has a \verb|send| function,
+\verb`lineWidth` and \verb`strokeStyle` services, and our remote monad is called
+\verb`Canvas`:
+
+\begin{verbatim}
+send        :: Device -> Canvas a -> IO a
+lineWidth   :: Double             -> Canvas ()
+strokeStyle :: Text               -> Canvas ()
+\end{verbatim}
+
+If we wanted to change the (remote) line width,
+the `lineWidth` RPC can be invoked by combining `send`
+and `lineWidth`:
+
+\begin{verbatim}
+send device (lineWidth 10)
+\end{verbatim}
+
+Likewise, if we wanted to change the (remote) stroke color,
+the `strokeStyle` RPC can be invoked by combining `send`
+and `strokeStyle`:
+
+\begin{verbatim}
+send device (strokeStyle "red")
+\end{verbatim}
+
+The key idea is that remote monadic commands can
+be locally combined before sending them to a remote server.
+For example:
+
+\begin{verbatim}
+send device (lineWidth 10 >> strokeStyle "red")
+\end{verbatim}
+
+The complication is that, in general, monadic commands can return a
+result, which may be used by subsequent commands.  For example, if we
+add a monadic command that returns a Boolean,
+
+\begin{verbatim}
+isPointInPath :: (Double,Double) -> Canvas Bool
+\end{verbatim}
+
+we could use the result as follows:
+
+\begin{verbatim}
+   send device $ do
+      inside <- isPointInPath (0,0)
+      lineWidth (if inside then 10 else 2)
+      ...
+\end{verbatim}
+
+The invocation of `send` can also return a value:
+
+\begin{verbatim}
+  do res <- send device (isPointInPath (0,0))
+     ...
+\end{verbatim}
+
+Thus, while the monadic commands inside \verb`send` are executed in a
+remote location, the results of those executions need to be made
+available for use locally.  This is the remote monad design
+pattern.
+
+We have paper in the 2015 Haskell Symposium that discusses these ideas in more detail.
+We have identified six variants of the design pattern, including
+a weak remote monad, which calls primitives one at a time, and
+a strong remote monad, which bundles primitives together in a robust way that
+amortizes the cost of calling remote capabilities.
+We have also identified over a dozen cases of this design pattern being used in practice. 
+The remote monad design pattern is a neat way to have a monad 
+
+\FurtherReading
+\begin{compactitem}
+\item
+  \url{http://ku-fpg.github.io/practice/remotemonad}
+\end{compactitem}
+\end{hcarentry}
