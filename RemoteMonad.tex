@@ -1,7 +1,7 @@
 % Remote-Monad.tex
-\begin{hcarentry}[new]{The Remote Monad Design Pattern}
-\label{Wakarusa}
-\report{Andy Gill}
+\begin{hcarentry}{The Remote Monad Design Pattern}
+\label{RemoteMonad}
+\report{Andrew Gill}
 \participants{Justin Dawson, Mark Grebe, James Stanton, David Young}
 \status{active}
 \makeheader
@@ -11,7 +11,7 @@ making Remote Procedure Calls (RPCs), and other
 calls that leave the Haskell eco-system, considerably less expensive.
 The idea is that, rather than directly call a remote procedure,
 we instead give the remote procedure call a service-specific monadic
-type, and invoke the remote procedure call using a monadic "send" function.
+type, and invoke the remote procedure call using a monadic ``send'' function.
 Specifically, a {\bf remote monad} is a monad that has its evaluation function in
 a remote location, outside the local runtime system.
 
@@ -78,8 +78,8 @@ The invocation of \verb`send` can also return a value:
 
 Thus, while the monadic commands inside \verb`send` are executed in a
 remote location, the results of those executions need to be made
-available for use locally.  This is the remote monad design
-pattern.
+available for use locally. 
+% This is the remote monad design pattern.
 
 We have paper in the 2015 Haskell Symposium that discusses these ideas in more detail.
 We have identified six variants of the design pattern, including
@@ -87,7 +87,6 @@ a weak remote monad, which calls primitives one at a time, and
 a strong remote monad, which bundles primitives together in a robust way that
 amortizes the cost of calling remote capabilities.
 We have also identified over a dozen cases of this design pattern being used in practice. 
-The remote monad design pattern is a neat way to have a monad 
 
 \FurtherReading
 \begin{compactitem}

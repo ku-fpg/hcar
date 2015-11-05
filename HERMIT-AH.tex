@@ -2,7 +2,7 @@
 \begin{hcarentry}[updated]{HERMIT}
 \label{HERMIT}
 \report{Andrew Gill}%05/15
-\participants{Andrew Farmer, Neil Sculthorpe, Ryan Scott}
+\participants{Andrew Farmer, Neil Sculthorpe, Ryan Scott, David Young}
 \status{active}
 \makeheader
 
@@ -10,24 +10,14 @@ The Haskell Equational Reasoning Model-to-Implementation Tunnel
 (HERMIT) is an NSF-funded project being run at KU \cref{ukansas}, which aims to improve the
 applicability of Haskell-hosted Semi-Formal Models to High Assurance Development.
 Specifically, HERMIT uses a Haskell-hosted DSL
-and a new refinement user interface to perform rewrites directly on Haskell Core, the GHC internal representation.
+and a refinement DSL to perform rewrites directly on Haskell Core,
+the GHC internal representation.
 
-In the project we want to
-demonstrate the equivalences between efficient Haskell programs, and
-their clear specification-style Haskell counterparts. In doing so
-there are several open problems, including refinement scripting and
-managing scaling issues, data representation and presentation
-challenges, and understanding the theoretical boundaries of the
-worker/wrapper transformation.
-
-We have reworked KURE, a Haskell-hosted DSL for strategic programming, as the basis of our rewrite capabilities,
-and constructed the rewrite kernel making use of the GHC Plugins architecture.
-A journal writeup of the KURE internals is available in JFP.
-As for interfaces to the kernel,
-we currently have a command-line REPL, which we are replacing this summer with a GHCi DSL,
-called Black Shell.
-We have used HERMIT to successfully mechanize many smaller examples of program transformations,
-drawn from the literature on techniques such as concatenate vanishes, tupling transformation, and worker/wrapper.
+Over the summer, we reworked our user-level refinement DSL to use Haskell,
+by making use of the remote monad~\cref{RemoteMonad}. This new
+shell, dubbed the Black Shell, replaced the REPL with GHCi,
+and brings the full power of Haskell DSLs to new API. The
+port has been complete, and we hope to release HERMIT, with the Black Shell, shortly.
 
 \FurtherReading
   \url{https://github.com/ku-fpg/hermit}
