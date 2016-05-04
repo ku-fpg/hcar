@@ -15,29 +15,27 @@
 
 Haskino is a Haskell development environment for programming the
 Arduino microcontroller boards in a high level functional language
-instead of the low level C language normally used.  Haskino presents
-two complimentary ways of developing programs for the Arduino.
+instead of the low level C language normally used.  
 
-The first method allows programming of an Arduino tethered to a host
-computer through a serial connection.  This work started with Levent
-Erk\"{o}k's hArduino package.  To this we have added our strong Remote
-Monad concepts, which provide a more efficient method of communication
-with the board.  We have also replaced the Firmata serial
-communication protocol and firmware with a new protocol and firmware
-which also allow for more efficient communication, and are expandable
-to meet the needs of our second programming method.
+This work started with Levent Erk\"{o}k's hArduino package.  The original 
+version of Haskino, extended hArduino by applying the concepts of the 
+strong remote monad design pattern to provide a more efficient way 
+of communicating, and generalizing the controls over the remote execution. 
+In addition, it added a deep embedding, control structures, an expression
+language, and a redesigned firmware interpreter to enable standalone 
+software for the Arduino to be developed using the full power of Haskell.
 
-The second method of programming the Arduino uses a deep embedding to
-out-source entire groups of commands and control-flow idioms.  These
-programs may then be stored in EEPROM on the board, and executed from
-startup, with no connection to the host computer required.  A Haskell
-programmer can start program development with the first method, which
-allows for convenient prototyping and debugging.  The program can then
-be moved to the second method, with the entire computation being
-performed on the Arduino, and not requiring the host computer.
+The current version of Haskino continues to build on this work.
+Haskino is now able to directly generate C programs from our Arduino
+Monad.  This allows the same monadic program to be quickly developed
+and prototyped with the interpreter, then compiled to C for more
+efficient operation.  In addition, we have added scheduling capability
+with lightweight threads and semaphores for inter-thread synchronization.
 
-The development has been active over the past 6 months and there is a
-paper accepted for publication at PADL 2016.
+The development has been active over the past year.  A paper was 
+published at PADL 2016 for original version, and there is a
+paper accepted for presentation at TFP 2016 for the new
+scheduled and compiled version.
 
 \FurtherReading
 \begin{compactitem}
