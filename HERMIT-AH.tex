@@ -1,23 +1,23 @@
 % HERMIT-AH.tex
 \begin{hcarentry}[updated]{HERMIT}
 \label{HERMIT}
-\report{Andrew Gill}%05/15
-\participants{Andrew Farmer, Neil Sculthorpe, Ryan Scott, David Young}
+\report{Andrew Gill}%11/15
+\participants{Andrew Farmer, Neil Sculthorpe, Ryan Scott}
 \status{active}
 \makeheader
 
-The Haskell Equational Reasoning Model-to-Implementation Tunnel
-(HERMIT) is an NSF-funded project being run at KU \cref{ukansas}, which aims to improve the
-applicability of Haskell-hosted Semi-Formal Models to High Assurance Development.
-Specifically, HERMIT uses a Haskell-hosted DSL
-and a refinement DSL to perform rewrites directly on Haskell Core,
-the GHC internal representation.
+The Haskell Equational Reasoning Model-to-Implementation Tunnel (HERMIT) is an
+NSF-funded project being run at KU \cref{ukansas}, which aims to improve the
+applicability of Haskell-hosted Semi-Formal Models to High Assurance
+Development.  Specifically, HERMIT uses a Haskell-hosted DSL and a refinement
+DSL to perform rewrites directly on Haskell Core, the GHC internal
+representation.
 
-Over the summer, we reworked our user-level refinement DSL to use Haskell,
-by making use of the remote monad~\cref{RemoteMonad}. This new
-shell, dubbed the Black Shell, replaced the REPL with GHCi,
-and brings the full power of Haskell DSLs to new API. The
-port has been completed, and we hope to release HERMIT, with the Black Shell, shortly.
+Over the summer, we reworked our user-level refinement DSL to use Haskell, by
+making use of the remote monad~\cref{RemoteMonad}. This new shell, dubbed the
+Black Shell, replaced the REPL with GHCi, and brings the full power of Haskell
+DSLs to new API. The port has been completed, and we hope to release HERMIT,
+with the Black Shell, shortly.
 
 \FurtherReading
   \url{https://github.com/ku-fpg/hermit}
