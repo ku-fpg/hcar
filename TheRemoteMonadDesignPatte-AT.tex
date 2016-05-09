@@ -94,13 +94,14 @@ remote location, the results of those executions need to be made
 available for use locally. 
 % This is the remote monad design pattern.
 
-We have a paper in the 2015 Haskell Symposium that discusses these ideas in more detail.
-We have identified six variants of the design pattern, including
-a weak remote monad, which calls primitives one at a time, and
-a strong remote monad, which bundles primitives together in a robust way that
-amortizes the cost of calling remote capabilities.
-We have also identified over a dozen use-cases of this design pattern being used in practice. 
+We had a paper in the 2015 Haskell Symposium that discusses these ideas in more detail,
+and more recently, we have improved the packet mechanism to include an analog of
+the applicate monad structure, allowing for even better bundling. We have also improved
+the error handling capabilities. 
+These ideas are implemented up in the hackage package remote-monad, which captures
+the pattern, and automatically bundled the monadic requests.
 
 \FurtherReading
   \url{http://ku-fpg.github.io/practice/remotemonad}
+  \url{https://hackage.haskell.org/package/remote-monad}
 \end{hcarentry}
